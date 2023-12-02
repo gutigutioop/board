@@ -10,6 +10,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.example.board.validation.Group1;
+import com.example.board.validation.Group2;
+
 import lombok.Data;
 
 /**
@@ -28,20 +31,26 @@ public class Post {
 
     /** 投稿者 */
     @Column(length = 20, nullable = false)
-    @NotEmpty
-    @Size(min = 1, max = 20)
+    //@NotEmpty
+    @NotEmpty(groups = Group1.class)
+    //@Size(min = 1, max = 20)
+    @Size(min = 1, max = 20, groups = Group2.class)
     private String author = null;
 
     /** タイトル */
     @Column(length = 20, nullable = false)
-    @NotEmpty
-    @Size(min = 1, max = 20)
+    //@NotEmpty
+    @NotEmpty(groups = Group1.class)
+    //@Size(min = 1, max = 20)
+    @Size(min = 1, max = 20, groups = Group2.class)
     private String title = null;
 
     /** 内容 */
     @Column(length = 1000, nullable = false)
-    @NotEmpty
-    @Size(min = 1, max = 1000)
+    //@NotEmpty
+    @NotEmpty(groups = Group1.class)
+    //@Size(min = 1, max = 1000)
+    @Size(min = 1, max = 10, groups = Group2.class)
     private String body = null;
 
     /** 登録日時 */
